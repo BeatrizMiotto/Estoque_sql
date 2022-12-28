@@ -1,4 +1,5 @@
-﻿@{
+﻿@using web.Models
+@{
     ViewData["Title"] = "Produtos";
 }
 
@@ -9,36 +10,38 @@
 <hr>
 
 <section>
-    <div class="input-group mb-3">
+  <form action="/produtos/cadastrar" method="post">
+  <div class="input-group mb-3">
   <span class="input-group-text bg-dark" id="basic-addon1"></span>
-  <input type="text" class="form-control" placeholder="Nome do Produto" aria-label="NomeProduto" aria-describedby="basic-addon1">
+  <input type="text" class="form-control"  aria-label="NomeProduto" aria-describedby="basic-addon1" name="nome">
 </div>
 
 <div class="input-group mb-3">
   <span class="input-group-text text-white bg-dark">Descrição Do Produto</span>
-  <textarea class="form-control" aria-label="Descricao"></textarea>
+  <textarea class="form-control" aria-label="Descricao" name="descricao"></textarea>
 </div>
 
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Data de Entrada" aria-label="DataEntrada" aria-describedby="basic-addon2">
+  <input type="text" class="form-control"  aria-label="data_criacao" aria-describedby="basic-addon2" name="data_criacao">
   <span class="input-group-text text-white bg-dark" id="basic-addon2">Data de entrada do produto</span>
 </div>
 
 <div class="mb-3">
   <div class="input-group">
     <span class="input-group-text text-white bg-dark" id="basic-addon3">Data de validade do produto</span>
-    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="data_validade">
   </div>
 </div>
 
 <div class="input-group mb-3">
   <span class="input-group-text text-white bg-dark">Quantidade do Estoque</span>
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-</div>
+  <input type="text" class="form-control"  name="quantidade_estoque">
+</div> 
 
 <div class="input-group mb-3">
-<a href="/produtos/1/cadastrar" class="btn btn-dark">Enviar</a>
+<button type="submit" class="btn btn-dark">Enviar</button>
 </div>
+</form>
 </section>
 
 <hr>
@@ -47,6 +50,7 @@
   <thead class = "text-white bg-dark">
     <tr>
       <th scope="col">Id</th>
+      <th scope="col">Nome</th>
       <th scope="col">Descrição</th>
       <th scope="col">Entrada</th>
       <th scope="col">Validade</th>
@@ -56,15 +60,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-    <th scope="row">1</th>
-    <td>....</td>
-    <td>....</td>
-    <td>.....</td>
-    <td>.....</td>
-    <td><a href="/produtos/1/editar" class="btn btn-info">Editar</a></td>
-    <td><a href="/produtos/1/excluir" class="btn btn-danger">Excluir</a></td>
-    </tr>
+    @foreach (Produtos produto in ViewBag.produtos)
+    {
+      <tr>
+        <th scope="row">@produto.Id</th>
+        <td>@produto.Nome</td>
+        <td>@produto.Descricao</td>
+        <td>@produto.DataCriacao</td>
+        <td>@produto.DataValidade</td>
+        <td>@produto.QuantidadeEstoque</td>
+        <td><a href="/produtos/@produto.Id/editar" class="btn text-white btn-info">Editar</a></td>
+        <td><a href="/produtos/@produto.Id/excluir" class="btn btn-danger">Excluir</a></td>
+      </tr>
+      
+    }
   </tbody>
 </table>
 </section>

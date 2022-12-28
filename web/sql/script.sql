@@ -4,16 +4,16 @@ CREATE TABLE produtos(
 	id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 	nome VARCHAR(100) NOT NULL, 
 	descricao TEXT,  
-	data_criacao DATE,
-	data_validade DATE,
+	data_criacao VARCHAR(10),
+	data_validade VARCHAR(10),
 	quantidade_estoque INTEGER 
 );
 
-insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Maçã', 'Maçã Argentina', '2022-11-12', '2022-11-26', '30');
-insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Banana', 'Banana Prata', '2022-12-25', '2022-12-30', '40');
-insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Uva', 'Uva Verde', '2022-10-30', '2022-11-05', '10');
-insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Goiaba', 'Goiaba vermelha', '2022-12-26', '2022-12-30', '50');
-insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Manga', 'Manga Rosa', '2022-12-05', '2022-12-26', '20');
+insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Maçã', 'Maçã Argentina', '12/11/2022', '26/11/2022', '30');
+insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Banana', 'Banana Prata', '25/12/2022', '30/12/2022', '40');
+insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Uva', 'Uva Verde', '30/10/2022', '05/11/2022', '10');
+insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Goiaba', 'Goiaba vermelha', '26/12/2022', '30/12/2022', '50');
+insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque )values('Manga', 'Manga Rosa', '05/12/2022', '26/12/2022', '20');
 
 select * from produtos;
 
@@ -29,6 +29,7 @@ update produtos set nome ='Uva', descricao ='Uva Sem semente', data_criacao='202
 insert into produtos(nome, descricao, data_criacao, data_validade, quantidade_estoque)values('teste', 'teste', '2022-02-02', '2022-02-02', '10');
 
 delete from produtos where id =5;
+DROP TABLE produtos; -- deletar a tabela
 
 START TRANSACTION; --starta uma transação segura
 
