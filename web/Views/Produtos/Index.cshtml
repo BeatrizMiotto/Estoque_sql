@@ -22,20 +22,20 @@
 </div>
 
 <div class="input-group mb-3">
-  <input type="text" class="form-control"  aria-label="data_criacao" aria-describedby="basic-addon2" name="data_criacao">
+  <input type="text" class="form-control"  aria-label="entrada" aria-describedby="basic-addon2" name="entrada">
   <span class="input-group-text text-white bg-dark" id="basic-addon2">Data de entrada do produto</span>
 </div>
 
 <div class="mb-3">
   <div class="input-group">
     <span class="input-group-text text-white bg-dark" id="basic-addon3">Data de validade do produto</span>
-    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="data_validade">
+    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="validade">
   </div>
 </div>
 
 <div class="input-group mb-3">
   <span class="input-group-text text-white bg-dark">Quantidade do Estoque</span>
-  <input type="text" class="form-control"  name="quantidade_estoque">
+  <input type="text" class="form-control"  name="quantidade">
 </div> 
 
 <div class="input-group mb-3">
@@ -66,9 +66,9 @@
         <th scope="row">@produto.Id</th>
         <td>@produto.Nome</td>
         <td>@produto.Descricao</td>
-        <td>@produto.DataCriacao</td>
-        <td>@produto.DataValidade</td>
-        <td>@produto.QuantidadeEstoque</td>
+        <td>@produto.Entrada</td>
+        <td>@produto.Validade</td>
+        <td>@produto.Quantidade</td>
         <td><a href="/produtos/@produto.Id/editar" class="btn text-white btn-info">Editar</a></td>
         <td><a href="/produtos/@produto.Id/excluir" class="btn btn-danger">Excluir</a></td>
       </tr>
