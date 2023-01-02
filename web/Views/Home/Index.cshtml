@@ -1,7 +1,60 @@
-﻿@{
+﻿@using web.Models
+@{
     ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
     <h1 class="display-4">Estoque</h1>
 </div>
+
+<section>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Quantidade Em Estoque</h5>
+            <table class="table">
+                <thead class="text-white bg-dark">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (Produtos produto in ViewBag.produtos)
+                {
+                    <tr>
+                        <td>@produto.Nome</td>
+                        <td>@produto.Quantidade</td>
+                    </tr>
+                }
+                        
+                </tbody>
+            </table>
+        </div>
+</section>
+<section>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Produtos que vence </h5>
+            <h6 class="card-subtitle mb-2 text-muted">daqui a 3 dias</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Quantidade de Produtos vencidos</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>  
+</section>
+<section>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Total De produtos</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>  
+</section>
