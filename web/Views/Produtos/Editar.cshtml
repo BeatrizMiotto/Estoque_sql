@@ -1,46 +1,49 @@
 @using web.Models
 @{
     Produtos produto = @ViewBag.produto;
-    ViewData["Title"] = "Editar - produto.Nome";
+    ViewData["Title"] = "Editar Produto - produto.Nome";
 }
+
 <div class="text-center">
-    <h1 class="display-4">Editar Produtos - @produto.Nome</h1>
+  <h1 class="display-4">Editar Produto - @produto.Nome</h1>
 </div>
 
 <hr>
 
 <section>
-  <form action="/produtos/@produto.Id/editar" method="post">
+  <form action="/produtos/@produto.Id/atualizar" method="post">
   <div class="input-group mb-3">
-  <span class="input-group-text bg-dark" id="basic-addon1"></span>
+  <span class="input-group-text text-white  bg-secondary" id="basic-addon1">Nome do Produto</span>
   <input type="text" class="form-control"  aria-label="NomeProduto" aria-describedby="basic-addon1" name="nome" value="@produto.Nome">
 </div>
 
 <div class="input-group mb-3">
-  <span class="input-group-text text-white bg-dark">Descrição Do Produto</span>
-  <textarea class="form-control" aria-label="Descricao" name="descricao" value="@produto.Descricao"></textarea>
+  <span class="input-group-text text-white bg-secondary" id="decricao">Descrição Do Produto</span>
+  <input type="text" class="form-control" aria-label="Descricao" name="descricao" value="@produto.Descricao">
 </div>
 
 <div class="input-group mb-3">
   <input type="text" class="form-control"  aria-label="entrada" aria-describedby="basic-addon2" name="entrada" value="@produto.Entrada">
-  <span class="input-group-text text-white bg-dark" id="basic-addon2">Data de entrada do produto</span>
+  <span class="input-group-text text-white bg-secondary" id="basic-addon2">Data de entrada do produto</span>
 </div>
 
 <div class="mb-3">
   <div class="input-group">
-    <span class="input-group-text text-white bg-dark" id="basic-addon3">Data de validade do produto</span>
+    <span class="input-group-text text-white bg-secondary" id="basic-addon3">Data de validade do produto</span>
     <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="validade" value="@produto.Validade">
   </div>
 </div>
 
 <div class="input-group mb-3">
-  <span class="input-group-text text-white bg-dark">Quantidade do Estoque</span>
+  <span class="input-group-text text-white bg-secondary">Quantidade do Estoque</span>
   <input type="text" class="form-control"  name="quantidade" value="@produto.Quantidade">
 </div> 
 
 <div class="input-group mb-3">
-<button type="submit" class="btn btn-dark">Editar</button>
-<a href="/produtos" class="btn btn-dark">Voltar</a>
+<button type="submit" class="btn btn-secondary">Editar</button>
 </div>
 </form>
 </section>
+<div>
+  <a href="/produtos" class="btn btn-primary text-white">Voltar</a>
+</div>

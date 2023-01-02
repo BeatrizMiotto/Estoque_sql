@@ -31,32 +31,7 @@ public class Produtos
             connection.Close();
         }
     }
-    public static List<Produtos> BuscarPorId(string idBusca)
-    {
-        var produtos = new List<Produtos>();
-        using(var connection = new MySqlConnection(conexao))
-        {
-            connection.Open();
-            var query = $"select * from produto where id = '{idBusca}' or email like '%{idBusca}%' ";
-            var command = new MySqlCommand(query, connection);
-            var dataReader = command.ExecuteReader();
-            
-            while(dataReader.Read())
-            {
-                produtos.Add(new Produtos{
-                    Id = Convert.ToInt32(dataReader["Id"]),
-                    Nome = dataReader["nome"].ToString(),
-                    Descricao = dataReader["descricao"].ToString(),
-                    Entrada = dataReader["entrada"].ToString(),
-                    Validade = dataReader["validade"].ToString(),
-                    Quantidade = Convert.ToInt32(dataReader["quantidade"])
-                });
-
-            }
-            connection.Close();
-        }
-        return produtos;
-    }
+    
     public static List<Produtos> Listar()
     {
         var produtos = new List<Produtos>();
@@ -122,6 +97,6 @@ public class Produtos
             }
             connection.Close();
         }
-        return produto.Id == 0? null : produto;
+        return produto.Id == 0 ? null : produto;
     }
 }

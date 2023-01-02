@@ -24,7 +24,7 @@ select * from produto where nome like 'Ba%'; --filtra por parte do nome no inici
 select * from produto where nome like '%aba'; --filtra por parte do nome no inicio
 select * from produto where nome like '%an%'; --filtra por parte do texto
 
-update produto set nome ='Uva', descricao ='Uva Sem semente', entrada='2022-10-31', validade= '2022-11-10', quantidade= '25' where id =3;
+update produto set nome ='Maçã', descricao ='Maçã Red', entrada='12/11/2022', validade= '26/11/2022', quantidade= '30' where id =16;
 
 insert into produto(nome, descricao, entrada, validade, quantidade)values('teste', 'teste', '2022-02-02', '2022-02-02', '10');
 

@@ -22,6 +22,20 @@ public class ProdutosController : Controller
         produto.SalvarProdutos();
         return Redirect("/produtos");
     }
+    [Route("/produtos/{id}/editar")]
+    public IActionResult Editar([FromRoute] int id)
+    {
+        ViewBag.produto = Produtos.BuscaPorId(id);
+        return View();
+    }
+    
+    [Route("/produtos/{id}/atualizar")] 
+    public IActionResult Atualizar([FromRoute] int id, [FromForm] Produtos produtos)
+    {
+        produtos.Id = id;
+        produtos.SalvarProdutos();
+        return Redirect("/produtos");
+    }  
     [Route("/produtos/{id}/excluir")]
     public IActionResult Excluir([FromRoute] int id)
     {
@@ -29,13 +43,4 @@ public class ProdutosController : Controller
         Produtos.ExcluirPorId(id);
         return Redirect("/produtos");
     }
-    [Route("/produtos/{id}/editar")]
-    public IActionResult Editar([FromRoute] int id, [FromForm] Produtos produto)
-    {
-        produto.Id = id;
-        produto.SalvarProdutos();
-        ViewBag.produto = Produtos.BuscaPorId(id);
-        return Redirect("/produtos");
-    }
-    
 }
