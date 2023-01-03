@@ -49,7 +49,6 @@
   <table class="table">
   <thead class = "text-white bg-dark">
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Nome</th>
       <th scope="col">Descrição</th>
       <th scope="col">Entrada</th>
@@ -63,7 +62,6 @@
     @foreach (Produtos produto in ViewBag.produtos)
     {
       <tr>
-        <th scope="row">@produto.Id</th>
         <td>@produto.Nome</td>
         <td>@produto.Descricao</td>
         <td>@produto.Entrada</td>
